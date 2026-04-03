@@ -1,5 +1,7 @@
 package endotherma.content;
 
+import mindustry.content.Items;
+
 import arc.graphics.*;
 import arc.math.*;
 import arc.struct.*;
