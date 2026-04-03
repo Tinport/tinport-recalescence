@@ -42,7 +42,7 @@ import static mindustry.type.ItemStack.*;
 
 
 public class EndBlocks {
-  public static Block testblockofdoom
+  public static Block testblockofdoom;
   public static void load(){
         testblockofdoom = new Wall("copper-wall"){{
             requirements(Category.defense, with(Items.copper, 9));
