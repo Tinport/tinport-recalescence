@@ -1,4 +1,4 @@
-package example;
+package endotherma;
 
 import arc.*;
 import arc.util.*;
