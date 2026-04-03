@@ -6,9 +6,9 @@ import mindustry.game.EventType.*;
 import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
 
-public class ExampleJavaMod extends Mod{
+public class Endotherma extends Mod{
 
-    public ExampleJavaMod(){
+    public Endotherma(){
         Log.info("drugs 2");
 
     @Override
