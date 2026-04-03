@@ -6,6 +6,8 @@ import mindustry.game.EventType.*;
 import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
 
+import endotherma.content.EndBlocks
+
 public class Endotherma extends Mod{
 
     public Endotherma(){
