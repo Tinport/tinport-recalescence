@@ -1,4 +1,4 @@
-package endotherma.world.blocks.defense
+package endotherma.world.blocks.defense;
 
 import arc.*;
 import arc.audio.*;
