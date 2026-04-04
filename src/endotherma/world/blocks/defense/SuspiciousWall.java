@@ -41,7 +41,7 @@ import mindustry.world.meta.*;
 import static mindustry.Vars.*;
 
 public class SuspiciousWall extends Wall {
-
+    public Sound clickSound = Sounds.click;
     public SuspiciousWall(String name){
         super(name);
         solid = true;
@@ -69,6 +69,55 @@ public class SuspiciousWall extends Wall {
         if(enabled){
             Events.fire(Trigger.thoriumReactorOverheat);
             kill();
+        }
+    }
+    public class WallBuild extends Building{
+        public float hit;
+
+        @Override
+        public void draw(){
+            super.draw();
+
+            //draw flashing white overlay if enabled
+            if(flashHit){
+                if(hit < 0.0001f) return;
+
+                Draw.color(flashColor);
+                Draw.alpha(hit * 0.5f);
+                Draw.blend(Blending.additive);
+                Fill.rect(x, y, tilesize * size, tilesize * size);
+                Draw.blend();
+                Draw.reset();
+
+                if(!state.isPaused()){
+                    hit = Mathf.clamp(hit - Time.delta / 10f);
+                }
+            }
+        }
+
+        @Override
+        public boolean configTapped(){
+            configure(!enabled);
+            clickSound.at(this);
+            return false;
+        }
+        @Override
+        public void draw(){
+            super.draw();
+
+            if(enabled){
+                Events.fire(Trigger.thoriumReactorOverheat);
+                kill();
+            }
+        }
+
+        @Override
+        public boolean collision(Bullet bullet){
+            super.collision(bullet);
+
+            hit = 1f;
+
+            return true;
         }
     }
 
