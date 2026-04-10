@@ -48,10 +48,9 @@ import endotherma.world.blocks.defense.SuspiciousWall;
 public class EndBlocks {
   public static Block testblockofdoom;
   public static void load(){
-        testblockofdoom = new SuspiciousWall("copper-wall"){{
+        testblockofdoom = new SuspiciousWall("explosion-wall"){{
             requirements(Category.defense, with(Items.copper, 9));
             health = 1 * 4;
-            researchCostMultiplier = 0.1f;
         }};
   }
 }

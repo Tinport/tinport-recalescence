@@ -1,106 +1,50 @@
 package endotherma.world.blocks.defense;
 
+import arc.*;
+import arc.audio.*;
 import arc.graphics.*;
+import arc.graphics.g2d.*;
 import arc.math.*;
 import arc.struct.*;
-import mindustry.*;
+import arc.util.*;
+import arc.util.io.*;
+import mindustry.content.*;
+import mindustry.game.EventType.*;
 import mindustry.entities.*;
-import mindustry.entities.abilities.*;
-import mindustry.entities.bullet.*;
-import mindustry.entities.effect.*;
-import mindustry.entities.part.DrawPart.*;
-import mindustry.entities.part.*;
-import mindustry.entities.pattern.*;
-import mindustry.game.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
+import mindustry.logic.*;
 import mindustry.type.*;
-import mindustry.type.unit.*;
+import mindustry.ui.*;
 import mindustry.world.*;
-import mindustry.world.blocks.*;
-import mindustry.world.blocks.campaign.*;
-import mindustry.world.blocks.defense.*;
-import mindustry.world.blocks.defense.turrets.*;
-import mindustry.world.blocks.distribution.*;
-import mindustry.world.blocks.environment.*;
 import mindustry.world.blocks.heat.*;
-import mindustry.world.blocks.legacy.*;
-import mindustry.world.blocks.liquid.*;
-import mindustry.world.blocks.logic.*;
-import mindustry.world.blocks.payloads.*;
-import mindustry.world.blocks.power.*;
-import mindustry.world.blocks.production.*;
-import mindustry.world.blocks.sandbox.*;
-import mindustry.world.blocks.storage.*;
-import mindustry.world.blocks.units.*;
-import mindustry.world.consumers.*;
-import mindustry.world.draw.*;
 import mindustry.world.meta.*;
-
 
 import static mindustry.Vars.*;
 
-public class SuspiciousWall extends Wall {
+public class SuspiciousWall extends Block {
     public Sound clickSound = Sounds.click;
     public SuspiciousWall(String name){
         super(name);
         solid = true;
+        configurable = true;
+        update = true;
         destructible = true;
         group = BlockGroup.walls;
-        buildCostMultiplier = 6f;
         canOverdrive = false;
         drawDisabled = false;
         crushDamageMultiplier = 5f;
         priority = TargetPriority.wall;
 
+        config(Boolean.class, (SWallBuild entity, Boolean b) -> entity.enabled = b);
+
         //it's a wall of course it's supported everywhere
         envEnabled = Env.any;
     }
-    @Override
-    public boolean configTapped(){
-        configure(!enabled);
-        clickSound.at(this);
-        return false;
-    }
-    @Override
-    public void draw(){
-        super.draw();
 
-        if(enabled){
-            Events.fire(Trigger.thoriumReactorOverheat);
-            kill();
-        }
-    }
-    public class WallBuild extends Building{
+    public class SWallBuild extends Building{
         public float hit;
 
-        @Override
-        public void draw(){
-            super.draw();
-
-            //draw flashing white overlay if enabled
-            if(flashHit){
-                if(hit < 0.0001f) return;
-
-                Draw.color(flashColor);
-                Draw.alpha(hit * 0.5f);
-                Draw.blend(Blending.additive);
-                Fill.rect(x, y, tilesize * size, tilesize * size);
-                Draw.blend();
-                Draw.reset();
-
-                if(!state.isPaused()){
-                    hit = Mathf.clamp(hit - Time.delta / 10f);
-                }
-            }
-        }
-
-        @Override
-        public boolean configTapped(){
-            configure(!enabled);
-            clickSound.at(this);
-            return false;
-        }
         @Override
         public void draw(){
             super.draw();
@@ -112,13 +56,15 @@ public class SuspiciousWall extends Wall {
         }
 
         @Override
-        public boolean collision(Bullet bullet){
-            super.collision(bullet);
+        public boolean configTapped(){
+            configure(!enabled);
+            clickSound.at(this);
+            return false;
+        }
 
-            hit = 1f;
-
-            return true;
+        @Override
+        public Boolean config(){
+            return enabled;
         }
     }
-
 }
