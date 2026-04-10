@@ -49,7 +49,7 @@ public class SuspiciousWall extends Block {
         public void draw(){
             super.draw();
 
-            if(enabled){
+            if(!enabled){
                 Events.fire(Trigger.thoriumReactorOverheat);
                 kill();
             }
