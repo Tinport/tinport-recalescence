@@ -9,6 +9,9 @@ import mindustry.*;
 import mindustry.game.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
+import mindustry.world.*;
+import mindustry.world.blocks.*;
+import mindustry.world.blocks.environment.*;
 
 import static mindustry.Vars.*;
 import static mindustry.type.ItemStack.*;
@@ -22,7 +25,7 @@ public class RecalEnv {
 
     ;
 
-    public static void(){
+    public static void load(){
 
         recalSand = new Floor("recal-sand"){{
             variants = 4;

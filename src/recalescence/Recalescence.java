@@ -15,7 +15,7 @@ public class Recalescence extends Mod{
     public void loadContent() {
         Log.info("recal blok");
         RecalBlocks.load();
-        Log.info("recal env")
+        Log.info("recal env");
         RecalEnv.load();
     }
 
