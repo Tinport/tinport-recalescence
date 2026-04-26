@@ -1,4 +1,4 @@
-package recalescence.content;
+package recalescence.content.blocks;
 
 import mindustry.content.Items;
 
