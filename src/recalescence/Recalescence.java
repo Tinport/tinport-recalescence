@@ -1,4 +1,4 @@
-package endotherma;
+package recalescence;
 
 import arc.*;
 import arc.util.*;
@@ -6,14 +6,14 @@ import mindustry.game.EventType.*;
 import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
 
-import endotherma.content.EndBlocks;
+import recalescence.content.RecalBlocks;
 
-public class Endotherma extends Mod{
+public class Recalescence extends Mod{
 
     @Override
     public void loadContent() {
         Log.info("drugs");
-        EndBlocks.load();
+        RecalBlocks.load();
     }
 
 }

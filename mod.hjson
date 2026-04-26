@@ -1,14 +1,14 @@
 #the mod name as displayed in-game
-displayName: "Endotherma"
+displayName: "Recalescence"
 
 #the internal name of your mod
-name: "endotherma"
+name: "recalescence"
 
 #your name
 author: "Tinport"
 
 #the fully qualified main class of the mod
-main: "endotherma.Endotherma"
+main: "recalescence.Recalescence"
 
 #the mod description as seen in the mod dialog
 description: "god what the hell am i doing"

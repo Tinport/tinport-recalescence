@@ -1,4 +1,4 @@
-package endotherma.content;
+package recalescence.content;
 
 import mindustry.content.Items;
 
@@ -42,15 +42,13 @@ import mindustry.world.meta.*;
 import static mindustry.Vars.*;
 import static mindustry.type.ItemStack.*;
 
-import endotherma.world.blocks.defense.SuspiciousWall;
 
-
-public class EndBlocks {
+public class RecalBlocks {
   public static Block testblockofdoom;
   public static void load(){
-        testblockofdoom = new SuspiciousWall("explosion-wall"){{
-            requirements(Category.defense, with(Items.copper, 9));
-            health = 1 * 4;
+        testblockofdoom = new Wall("explosion-wall"){{
+            requirements(Category.defense, with(Items.copper, 12828));
+            health = 30000 * 4;
         }};
   }
 }
