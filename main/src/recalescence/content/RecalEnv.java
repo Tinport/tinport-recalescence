@@ -27,14 +27,14 @@ public class RecalEnv {
 
     public static void load(){
 
-        recalSand = new Floor("recal-sand"){{
+        recalSand = new Floor("sand"){{
             variants = 4;
         }};
-        recalSparseSand = new Floor("recal-sprase-sand"){{
+        recalSparseSand = new Floor("sprase-sand"){{
             variants = 4;
             blendGroup = recalSand;
         }};
-        recalCompressedSand = new Floor("recal-compressed-sand"){{
+        recalCompressedSand = new Floor("compressed-sand"){{
             variants = 4;
             blendGroup = recalSand;
         }};
