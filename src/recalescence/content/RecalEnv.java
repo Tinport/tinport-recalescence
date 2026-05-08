@@ -1,5 +1,7 @@
 package recalescence.content.blocks;
 
+
+import recalescence.world.graphics.RecalShaders;
 import mindustry.content.Items;
 import mindustry.content.StatusEffects;
 
@@ -68,7 +70,7 @@ public class RecalEnv {
             isLiquid = true;
             status = StatusEffects.wet;
             statusDuration = 120f;
-            cacheLayer = CacheLayer.water;
+            cacheLayer = RecalShaders.recalWaterLayer;
             albedo = 0.9f;
             supportsOverlay = true;
         }};
@@ -78,7 +80,7 @@ public class RecalEnv {
             isLiquid = true;
             status = StatusEffects.wet;
             statusDuration = 120f;
-            cacheLayer = CacheLayer.water;
+            cacheLayer = RecalShaders.recalWaterLayer;
             albedo = 0.9f;
             supportsOverlay = true;
         }};
@@ -89,7 +91,7 @@ public class RecalEnv {
             status = StatusEffects.wet;
             statusDuration = 60f;
             albedo = 0.9f;
-            cacheLayer = CacheLayer.water;
+            cacheLayer = RecalShaders.recalWaterLayer;
             supportsOverlay = true;
         }};
         recalWaterySand = new Floor("recal-watery-sand"){{
@@ -99,7 +101,7 @@ public class RecalEnv {
             status = StatusEffects.wet;
             statusDuration = 20f;
             albedo = 0.9f;
-            cacheLayer = CacheLayer.water;
+            cacheLayer = RecalShaders.recalWaterLayer;
             supportsOverlay = true;
         }};
 

@@ -8,6 +8,7 @@ import mindustry.ui.dialogs.*;
 
 import recalescence.content.blocks.RecalBlocks;
 import recalescence.content.blocks.RecalEnv;
+import recalescence.world.graphics.RecalShaders;
 
 public class Recalescence extends Mod{
 
