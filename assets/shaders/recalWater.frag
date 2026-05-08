@@ -23,10 +23,11 @@ void main(){
 
     float actcoords = (sin(stime / 30.0) * 5.0 )+ 40.0;
 
-    float tester = mod((coords.x + coords.y * 2.0)
+    float tester = mod((coords.x + coords.y * 1.5)
                     + sin(stime / 3.0 + coords.x/2.0) * 2.0
-                    + sin(stime / 5.0 - coords.y/2.0) * 2.0
-                    + sin(stime / 3.0 + coords.y)
+                    + sin(stime / 8.0 - coords.y/4.0) * 2.0
+                    + sin(stime / 8.0 + coords.y)
+                    + sin(stime / 12.0 + coords.x/3.0) * 3.0
                       ,actcoords);
     float mth = (sin(stime / 10.0) * 3.0) + 8.0;
 
