@@ -36,7 +36,7 @@ public class RecalShaders {
                 CacheLayer.add(
                         recalWaterLayer = new CacheLayer.ShaderLayer(recalWater)
                 );
-    }§
+    }
 
     public static class SurfaceShader extends Shader {
         Texture noiseTex;
